@@ -42,7 +42,7 @@ public class Advent
                 {
                     adv.Run();
                 }
-                catch (FailedToAnswerCorrectlyExcaption) { }
+                catch (FailedToAnswerCorrectlyException) { }
                 stopWatch.Stop();
                 Console.WriteLine("Elapsed: " + TimeToString(stopWatch.Elapsed));
                 return 0;
@@ -105,7 +105,7 @@ public class Advent
         }
         Console.ForegroundColor = fg;
         if (!correct)
-            throw new FailedToAnswerCorrectlyExcaption();
+            throw new FailedToAnswerCorrectlyException();
     }
 
     public static void AssertAnswer1(object result, object expected = null, object sampleExpected = null)
@@ -119,7 +119,7 @@ public interface IAdvent
 {
     void Run();
 }
-public class FailedToAnswerCorrectlyExcaption : Exception
+public class FailedToAnswerCorrectlyException : Exception
 {
 
 }
